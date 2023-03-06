@@ -1,0 +1,285 @@
+<html lang="en">
+
+<head>
+<title>Audio Samples</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<style>
+  .logo{
+    margin-left: 5px;
+    float: left;
+  }
+  
+  .banner{
+    color: #3265C2;
+    margin-left: 2%;
+    /*margin-bottom: 0;*/
+    float: left;
+  }
+
+  .closer { 
+    line-height: 10px;
+  }
+
+  .row:after {
+    content: "";
+    display: flex;
+    clear: both;
+  }
+
+  .case{
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  body {
+    margin: 20;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #topBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #topBtn:hover {
+    background-color: #3265C2;
+  }
+  
+  table {
+    border-collapse: collapse;
+  }
+  
+  th {
+    text-align: center;
+  	background-color: #3265C2;
+  	color: white;
+  	height: 30px;
+  }
+
+  td {
+    text-align: center;
+  }
+  
+  tr {
+    border-bottom: 2px solid black;
+  }
+  
+  .original {
+    transform: scale(1);
+    position: inherit;
+    z-index: 0;
+  }
+  
+  .enlarged {
+    transform: scale(2);
+    position: relative;
+    z-index: 100;
+  }
+
+  .reference{
+    font-family: 'Times New Roman';
+    font-size: 12;
+  }
+
+
+</style>
+</head>
+
+<body>
+
+<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+
+<div>
+   <div class="row">
+    <div class="logo"><img src=".\img\logo_ugent_nl.svg"></div>
+    <div class="banner">
+      <h1 class="closer">ASPIRE</h1>
+      <p class="closer" style="font-size: 80%;">Audio and Signal Processing, Interpretation, and Enhancement@IDLAB</p>
+    </div>
+  </div>
+
+</div>
+
+<div>
+  <h3>Audio samples </h3>
+  <div>
+
+    This is the demo page.<br/>
+    <!-- Reference: <br/>
+    <code>@article{}
+    </code>
+    <br/> -->
+    <br/>
+    
+    All samples have been rescaled to –26 dBov individually based on the active speech level (ASL). <br/>
+    <br/>
+
+<!--     The samples presented in this page are processed by:
+    <ul>
+      <li><strong>Baseline 1: Basic</strong>: CRUSE net [1] predicting log-mask, all the following networks have the same architecture and training target;</li>
+      <li><strong>Baseline 2: HAMSE</strong>: Trained with the loss function proposed in [2];</li>
+      <li><strong>2CEM</strong>: Trained with the proposed CEM loss on the spectral estimate, &beta;=2;</li>
+      <li><strong>adpCEM</strong>: Trained with the proposed CEM loss on the spectral estimate with an adaptive &beta;;</li>
+      <li><strong>maskCEM</strong>: Trained with the proposed CEM loss on the mask estimate, &beta;=1.2;</li>
+    </ul>
+	 <br/> -->
+  
+  </div>
+	
+  <div>
+	
+    <table class="tb" id="samples" style="margin-top:10px; margin-bottom:20px;">
+      <tbody>
+
+      <tr>
+        <td align="center">
+          Microphone observation<br/>
+          <img src=".\img\mic.png" width="300"><br/>
+          <audio controls=""><source src="./audio/mic_re.wav"></audio>
+        </td>
+        <td align="center">
+          REFERENCE A<br/>
+          <img src=".\img\s_dry_ch0.png" width="300"><br/>
+          <audio controls=""><source src="./audio/s_dry_ch0.wav"></audio>
+        </td>
+        <td align="center">
+          REFERENCE B<br/>
+          <img src=".\img\s_dry_ch1.png" width="300"><br/>
+          <audio controls=""><source src="./audio/s_dry_ch1.wav"></audio>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="center">
+           single_LDE_HC
+        </td>
+        <td align="center">
+          REFERENCE A<br/>
+          <img src=".\img\single_LDE_HC_ch0.png" width="300"><br/>
+          <audio controls=""><source src="./audio/single_LDE_HC_ch0.wav"></audio>
+        </td>
+        <td align="center">
+          REFERENCE B<br/>
+          <img src=".\img\single_LDE_HC_ch1.png" width="300"><br/>
+          <audio controls=""><source src="./audio/single_LDE_HC_ch1.wav"></audio>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="center">
+           single_LBI_HC
+        </td>
+        <td align="center">
+          REFERENCE A<br/>
+          <img src=".\img\single_LBI_HC_ch0.png" width="300"><br/>
+          <audio controls=""><source src="./audio/single_LBI_HC_ch0.wav"></audio>
+        </td>
+        <td align="center">
+          REFERENCE B<br/>
+          <img src=".\img\single_LBI_HC_ch1.png" width="300"><br/>
+          <audio controls=""><source src="./audio/single_LBI_HC_ch1.wav"></audio>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="center">
+           cascade_LDE_HC
+      </td>
+        <td align="center">
+          REFERENCE A<br/>
+          <img src=".\img\cascade_LDE_HC_ch0.png" width="300"><br/>
+          <audio controls=""><source src="./audio/cascade_LDE_HC_ch0.wav"></audio>
+        </td>
+        <td align="center">
+          REFERENCE B<br/>
+          <img src=".\img\cascade_LDE_HC_ch1.png" width="300"><br/>
+          <audio controls=""><source src="./audio/cascade_LDE_HC_ch1.wav"></audio>
+        </td>
+      </tr>
+
+    </tbody>
+	</table>
+  </div>
+
+  <!-- <br/> -->
+
+
+
+<!-- <h4>References</h4>
+<div>
+  <ol class="reference">
+    <li>
+      S. Braun, H. Gamper, C. K. Reddy, and I. Tashev, “Towards efficient models for real-time deep noise suppression,” in <em>ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>. IEEE, 2021, pp.656–660.
+    </li>
+    
+    <li>
+      N. Raviv, O. Schwartz, and S. Gannot, “Low resources online single-microphone speech enhancement with harmonic emphasis,” in <em>ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>. IEEE, 2022, pp. 8807–8811.
+    </li>
+  </ol>
+</div> -->
+
+<br/>
+
+<script>
+
+// Top button
+//Get the button
+var mybutton = document.getElementById("topBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+// show the noisy
+function showNoisy(img) {
+  var end = img.src.split('_');
+  var end = end[end.length-1];
+  img.src = img.src.replace(end, 'noisy.png');
+}
+
+// show the original
+function showOriginal(img) {
+  img.src = img.src.replace('_noisy.png', img.method+'.png');
+}
+
+function enlargeImg(img) {
+  if (img.className != 'enlarged'){
+    // enlarge the image
+    img.src = img.src.replace('_noisy.png', img.method+'.png');
+	img.className='enlarged';
+  } else {
+    // reset
+    img.className='original';
+  }
+  // Animation effect
+  img.style.transition = "transform 0.25s ease";
+}
+
+</script>
+
+</body>
