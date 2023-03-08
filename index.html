@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#ffffff">
 <style>
   .logo{
-    margin-left: 5px;
+    margin-left: 17%;
     float: left;
   }
   
@@ -65,11 +65,38 @@
     text-align: center;
   	background-color: #3265C2;
   	color: white;
-  	height: 30px;
+  	height: 40px;
+    font-size: 120%
   }
 
   td {
+    text-align: left;
+  }
+
+  .sigInfo{
+    width: 20%;
+  }
+
+  .sigTag{
     text-align: center;
+    font-weight: bold;
+  }
+
+
+  .setup{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+  .spectrogram{
+    width: 100%;
+  }
+
+  .audio{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   tr {
@@ -93,142 +120,257 @@
     font-size: 12;
   }
 
+  /*for navigation bar*/
+  ul.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+
+  li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  li a.active {
+    background-color: #3265C2;
+    color: white;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  .content{
+   margin-left: 17%;
+  }
+
 
 </style>
 </head>
 
 <body>
 
+<div>
+
+  <ul class='navigation'>
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#location">Location-informed DNN for source separation</a></li>
+    <li><a href="#binaural">Proof of concept for binaural augmentation</a></li>
+    <li><a href="#about">About ASPIRE</a></li>
+  </ul>
+
+</div>
+
 <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
 
-<div>
+<div id='home'>
    <div class="row">
     <div class="logo"><img src=".\img\logo_ugent_nl.svg"></div>
     <div class="banner">
       <h1 class="closer">ASPIRE</h1>
-      <p class="closer" style="font-size: 80%;">Audio and Signal Processing, Interpretation, and Enhancement@IDLAB</p>
+      <p class="closer" style="font-size: 90%;">Audio and Signal Processing, Interpretation, and Enhancement@IDLAB</p>
     </div>
   </div>
 
 </div>
 
-<div>
-  <h3>Audio samples </h3>
-  <div>
+<h3 class="content">Audio samples </h3>
 
-    This is the demo page.<br/>
-    <!-- Reference: <br/>
-    <code>@article{}
-    </code>
-    <br/> -->
-    <br/>
-    
-    All samples have been rescaled to –26 dBov individually based on the active speech level (ASL). <br/>
-    <br/>
-
-<!--     The samples presented in this page are processed by:
-    <ul>
-      <li><strong>Baseline 1: Basic</strong>: CRUSE net [1] predicting log-mask, all the following networks have the same architecture and training target;</li>
-      <li><strong>Baseline 2: HAMSE</strong>: Trained with the loss function proposed in [2];</li>
-      <li><strong>2CEM</strong>: Trained with the proposed CEM loss on the spectral estimate, &beta;=2;</li>
-      <li><strong>adpCEM</strong>: Trained with the proposed CEM loss on the spectral estimate with an adaptive &beta;;</li>
-      <li><strong>maskCEM</strong>: Trained with the proposed CEM loss on the mask estimate, &beta;=1.2;</li>
-    </ul>
-	 <br/> -->
-  
-  </div>
+<div class="content" id="location">
 	
-  <div>
-	
-    <table class="tb" id="samples" style="margin-top:10px; margin-bottom:20px;">
-      <tbody>
+  <table class="tb" style="margin-top:10px; margin-bottom:20px;">
+    <thead>
+      <tr>
+        <th colspan="3">Location-informed DNN for source separation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td class="sigInfo">
+          Setup: 
+          <ul>
+            <li>Compact microphone array (M=3)</li>
+            <li>in a reverberant room (T<sub>60</sub>=0.6s)</li>
+          </ul>
+        </td>
+        <td>
+          <img src=".\img\separation_setup.png" class=setup><br/>
+        </td>
+        <td>
+          <p class="sigTag">
+            Microphone observation
+          </p>
+          <img src=".\img\mic.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/mic_re.wav"></audio>
+        </td>
+        
+      </tr>
 
       <tr>
-        <td align="center">
-          Microphone observation<br/>
-          <img src=".\img\mic.png" width="300"><br/>
-          <audio controls=""><source src="./audio/mic_re.wav"></audio>
+        <td class="sigInfo">
+          Clean reference in the two directions
         </td>
-        <td align="center">
-          REFERENCE A<br/>
-          <img src=".\img\s_dry_ch0.png" width="300"><br/>
-          <audio controls=""><source src="./audio/s_dry_ch0.wav"></audio>
+        <td>
+          <p class="sigTag">
+            REFERENCE A
+          </p>
+          <img src=".\img\s_dry_ch0.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/s_dry_ch0.wav"></audio>
         </td>
-        <td align="center">
-          REFERENCE B<br/>
-          <img src=".\img\s_dry_ch1.png" width="300"><br/>
-          <audio controls=""><source src="./audio/s_dry_ch1.wav"></audio>
+        <td>
+          <p class="sigTag">
+            REFERENCE B
+          </p>
+          <img src=".\img\s_dry_ch1.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/s_dry_ch1.wav"></audio>
         </td>
       </tr>
 
       <tr>
-        <td align="center">
-           single_LDE_HC
+        <td class="sigInfo">
+           Integration of the location information in the input stage
         </td>
-        <td align="center">
-          REFERENCE A<br/>
-          <img src=".\img\single_LDE_HC_ch0.png" width="300"><br/>
-          <audio controls=""><source src="./audio/single_LDE_HC_ch0.wav"></audio>
+        <td>
+          <p class="sigTag">
+            Output A
+          </p>
+          <img src=".\img\single_LBI_HC_ch0.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/single_LBI_HC_ch0.wav"></audio>
         </td>
-        <td align="center">
-          REFERENCE B<br/>
-          <img src=".\img\single_LDE_HC_ch1.png" width="300"><br/>
-          <audio controls=""><source src="./audio/single_LDE_HC_ch1.wav"></audio>
-        </td>
-      </tr>
-
-      <tr>
-        <td align="center">
-           single_LBI_HC
-        </td>
-        <td align="center">
-          REFERENCE A<br/>
-          <img src=".\img\single_LBI_HC_ch0.png" width="300"><br/>
-          <audio controls=""><source src="./audio/single_LBI_HC_ch0.wav"></audio>
-        </td>
-        <td align="center">
-          REFERENCE B<br/>
-          <img src=".\img\single_LBI_HC_ch1.png" width="300"><br/>
-          <audio controls=""><source src="./audio/single_LBI_HC_ch1.wav"></audio>
+        <td>
+          <p class="sigTag">
+            Output B
+          </p>
+          <img src=".\img\single_LBI_HC_ch1.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/single_LBI_HC_ch1.wav"></audio>
         </td>
       </tr>
 
       <tr>
-        <td align="center">
-           cascade_LDE_HC
-      </td>
-        <td align="center">
-          REFERENCE A<br/>
-          <img src=".\img\cascade_LDE_HC_ch0.png" width="300"><br/>
-          <audio controls=""><source src="./audio/cascade_LDE_HC_ch0.wav"></audio>
+        <td class="sigInfo">
+           Integration of the location information deeper in the DNN
         </td>
-        <td align="center">
-          REFERENCE B<br/>
-          <img src=".\img\cascade_LDE_HC_ch1.png" width="300"><br/>
-          <audio controls=""><source src="./audio/cascade_LDE_HC_ch1.wav"></audio>
+        <td>
+          <p class="sigTag">
+            Output A
+          </p>
+          <img src=".\img\single_LDE_HC_ch0.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/single_LDE_HC_ch0.wav"></audio>
+        </td>
+        <td>
+          <p class="sigTag">
+            Output B
+          </p>
+          <img src=".\img\single_LDE_HC_ch1.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/single_LDE_HC_ch1.wav"></audio>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="sigInfo">
+           Cascade processing of DNN + post filter
+        </td>
+        <td>
+          <p class="sigTag">
+            Output A
+          </p>
+          <img src=".\img\cascade_LDE_HC_ch0.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/cascade_LDE_HC_ch0.wav"></audio>
+        </td>
+        <td>
+          <p class="sigTag">
+            Output B
+          </p>
+          <img src=".\img\cascade_LDE_HC_ch1.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/cascade_LDE_HC_ch1.wav"></audio>
         </td>
       </tr>
 
     </tbody>
 	</table>
-  </div>
+</div>
 
-  <!-- <br/> -->
+<div class="content" id="binaural">
+  
+  <table class="tb" style="margin-top:10px; margin-bottom:20px;">
+    <thead>
+      <tr>
+        <th colspan="3">Proof of concept for binaural augmentation</th>
+      </tr>
+    </thead>
 
+    <tbody>
+      <tr>
+        <td class="sigInfo" colspan="3">
+          Setup: 
+          <ul>
+            <li>Clarity challenge – binaural hearing (<a href="claritychallenge.org">Visit ClarityChallenge</a>) </li>
+            <li>2 hearing aids, 3 mics per device</li>
+            <li>Same core algorithm, trained for new situation</li>
+          </ul>
+        </td>
+        
+      </tr>
 
+      <tr>
+        <td class="sigInfo">
+          Speech in noise
+        </td>
+        <td>
+          <p class="sigTag">
+            Noisy observation
+          </p>
+          <img src=".\img\speech_in_noise.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/speech_in_noise.wav"></audio>
+        </td>
+        <td>
+          <p class="sigTag">
+            REFERENCE B
+          </p>
+          <img src=".\img\speech_in_noise_ext.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/speech_in_noise_ext.wav"></audio>
+        </td>
+      </tr>
 
-<!-- <h4>References</h4>
-<div>
-  <ol class="reference">
-    <li>
-      S. Braun, H. Gamper, C. K. Reddy, and I. Tashev, “Towards efficient models for real-time deep noise suppression,” in <em>ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>. IEEE, 2021, pp.656–660.
-    </li>
-    
-    <li>
-      N. Raviv, O. Schwartz, and S. Gannot, “Low resources online single-microphone speech enhancement with harmonic emphasis,” in <em>ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</em>. IEEE, 2022, pp. 8807–8811.
-    </li>
-  </ol>
-</div> -->
+      <tr>
+        <td class="sigInfo">
+           Integration of the location information in the input stage
+        </td>
+        <td>
+          <p class="sigTag">
+            Output A
+          </p>
+          <img src=".\img\speech_in_speech.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/speech_in_speech.wav"></audio>
+        </td>
+        <td>
+          <p class="sigTag">
+            Output B
+          </p>
+          <img src=".\img\speech_in_speech_ext.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/speech_in_speech_ext.wav"></audio>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="content" id="about">
+  <p>
+    Some other interesting links: 
+  </p>
+</div>
 
 <br/>
 
@@ -255,30 +397,32 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-// show the noisy
-function showNoisy(img) {
-  var end = img.src.split('_');
-  var end = end[end.length-1];
-  img.src = img.src.replace(end, 'noisy.png');
-}
 
-// show the original
-function showOriginal(img) {
-  img.src = img.src.replace('_noisy.png', img.method+'.png');
-}
 
-function enlargeImg(img) {
-  if (img.className != 'enlarged'){
-    // enlarge the image
-    img.src = img.src.replace('_noisy.png', img.method+'.png');
-	img.className='enlarged';
-  } else {
-    // reset
-    img.className='original';
-  }
-  // Animation effect
-  img.style.transition = "transform 0.25s ease";
-}
+// // show the noisy
+// function showNoisy(img) {
+//   var end = img.src.split('_');
+//   var end = end[end.length-1];
+//   img.src = img.src.replace(end, 'noisy.png');
+// }
+
+// // show the original
+// function showOriginal(img) {
+//   img.src = img.src.replace('_noisy.png', img.method+'.png');
+// }
+
+// function enlargeImg(img) {
+//   if (img.className != 'enlarged'){
+//     // enlarge the image
+//     img.src = img.src.replace('_noisy.png', img.method+'.png');
+// 	img.className='enlarged';
+//   } else {
+//     // reset
+//     img.className='original';
+//   }
+//   // Animation effect
+//   img.style.transition = "transform 0.25s ease";
+// }
 
 </script>
 
