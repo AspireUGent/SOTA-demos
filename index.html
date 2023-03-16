@@ -59,14 +59,16 @@
   
   table {
     border-collapse: collapse;
+    margin-top: 10px; 
+    margin-bottom: 20px;
   }
   
   th {
     text-align: center;
   	background-color: #3265C2;
   	color: white;
-  	height: 40px;
-    font-size: 120%
+  	height: 50px;
+    font-size: 140%
   }
 
   td {
@@ -75,13 +77,8 @@
 
   .sigInfo{
     width: 20%;
+    padding-top: 15px;
   }
-
-  .sigTag{
-    text-align: center;
-    font-weight: bold;
-  }
-
 
   .setup{
     display: block;
@@ -89,6 +86,21 @@
     margin-right: auto;
     width: 70%;
   }
+
+  .sigTag{
+    text-align: center;
+    font-weight: bold;
+    padding-top: 25px;
+  }
+
+  .noiseInfo{
+    text-align: center;
+    color: #3265C2;
+    height: 40px;
+    font-size: 120%;
+    font-weight: bold;
+  }
+
   .spectrogram{
     width: 100%;
   }
@@ -187,7 +199,7 @@
 
 <div class="content" id="location">
 	
-  <table class="tb" style="margin-top:10px; margin-bottom:20px;">
+  <table class="tb">
     <thead>
       <tr>
         <th colspan="3">Location-informed DNN for source separation</th>
@@ -214,26 +226,6 @@
           <audio controls="" class="audio"><source src="./audio/mic_re.wav"></audio>
         </td>
         
-      </tr>
-
-      <tr>
-        <td class="sigInfo">
-          Clean reference in the two directions
-        </td>
-        <td>
-          <p class="sigTag">
-            Clean-Female
-          </p>
-          <img src=".\img\s_dry_ch0.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/s_dry_ch0.wav"></audio>
-        </td>
-        <td>
-          <p class="sigTag">
-            Clean-Male
-          </p>
-          <img src=".\img\s_dry_ch1.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/s_dry_ch1.wav"></audio>
-        </td>
       </tr>
 
       <tr>
@@ -296,13 +288,34 @@
         </td>
       </tr>
 
+      <tr>
+        <td class="sigInfo">
+          Clean reference in the two directions
+        </td>
+        <td>
+          <p class="sigTag">
+            Clean-Female
+          </p>
+          <img src=".\img\s_dry_ch0.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/s_dry_ch0.wav"></audio>
+        </td>
+        <td>
+          <p class="sigTag">
+            Clean-Male
+          </p>
+          <img src=".\img\s_dry_ch1.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/s_dry_ch1.wav"></audio>
+        </td>
+      </tr>
+
+
     </tbody>
 	</table>
 </div>
 
 <div class="content" id="binaural">
   
-  <table class="tb" style="margin-top:10px; margin-bottom:20px;">
+  <table class="tb">
     <thead>
       <tr>
         <th colspan="3">Proof of concept for binaural augmentation</th>
@@ -319,52 +332,18 @@
             <li>Same core algorithm, trained for new situation</li>
           </ul>
         </td>
-        
-      </tr>
-
-<!--       <tr>
-        <td class="sigInfo">
-          Speech in noise
-        </td>
-        <td>
-          <p class="sigTag">
-            Noisy observation
-          </p>
-          <img src=".\img\speech_in_noise.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/speech_in_noise.wav"></audio>
-        </td>
-        <td>
-          <p class="sigTag">
-            Enchanced
-          </p>
-          <img src=".\img\speech_in_noise_ext.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/speech_in_noise_ext.wav"></audio>
-        </td>
       </tr>
 
       <tr>
-        <td class="sigInfo">
-           Speech in speech
+        <td class="noiseInfo" colspan="3">
+            Speech in domestic noise
         </td>
-        <td>
-          <p class="sigTag">
-            Noisy observation
-          </p>
-          <img src=".\img\speech_in_speech.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/speech_in_speech.wav"></audio>
-        </td>
-        <td>
-          <p class="sigTag">
-            Enchanced
-          </p>
-          <img src=".\img\speech_in_speech_ext.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/speech_in_speech_ext.wav"></audio>
-        </td>
-      </tr> -->
+      </tr>
+
 
       <tr>
         <td class="sigInfo">
-          Speech in boiling water noise
+          Boiling water noise
         </td>
         <td>
           <p class="sigTag">
@@ -377,15 +356,14 @@
           <p class="sigTag">
             Enhanced binaural signal
           </p>
-          <img src=".\img\S06253-beamforming-suppressed_ch0.png" class="spectrogram"><br/>
-          <img src=".\img\S06253-beamforming-suppressed_ch1.png" class="spectrogram"><br/>
+          <img src=".\img\S06253-beamforming-suppressed.png" class="spectrogram"><br/>
           <audio controls="" class="audio"><source src="./audio/S06253-beamforming-suppressed.wav"></audio>
         </td>
       </tr>
 
       <tr>
         <td class="sigInfo">
-          Speech in domestic (vacuum) noise
+          Vaccum noise
         </td>
         <td>
           <p class="sigTag">
@@ -398,15 +376,20 @@
           <p class="sigTag">
             Enhanced binaural signal
           </p>
-          <img src=".\img\S07845-beamforming-suppressed_ch0.png" class="spectrogram"><br/>
-          <img src=".\img\S07845-beamforming-suppressed_ch1.png" class="spectrogram"><br/>
+          <img src=".\img\S07845-beamforming-suppressed.png" class="spectrogram"><br/>
           <audio controls="" class="audio"><source src="./audio/S07845-beamforming-suppressed.wav"></audio>
         </td>
       </tr>
 
       <tr>
+        <td class="noiseInfo" colspan="3">
+            Speech in speech (target: the 2nd speaker)
+        </td>
+      </tr>
+
+      <tr>
         <td class="sigInfo">
-          Speech in interfering speech
+          Clip A
         </td>
         <td>
           <p class="sigTag">
@@ -419,15 +402,14 @@
           <p class="sigTag">
             Enhanced binaural signal
           </p>
-          <img src=".\img\S07835-beamforming-suppressed_ch0.png" class="spectrogram"><br/>
-          <img src=".\img\S07835-beamforming-suppressed_ch1.png" class="spectrogram"><br/>
+          <img src=".\img\S07835-beamforming-suppressed.png" class="spectrogram"><br/>
           <audio controls="" class="audio"><source src="./audio/S07835-beamforming-suppressed.wav"></audio>
         </td>
       </tr>
 
       <tr>
         <td class="sigInfo">
-          Speech in speech
+          Clip B
         </td>
         <td>
           <p class="sigTag">
@@ -438,10 +420,9 @@
         </td>
         <td>
           <p class="sigTag">
-            Enhanced binarual signal
+            Enhanced binaural signal
           </p>
-          <img src=".\img\S07837-beamforming-suppressed_ch0.png" class="spectrogram"><br/>
-          <img src=".\img\S07837-beamforming-suppressed_ch1.png" class="spectrogram"><br/>
+          <img src=".\img\S07837-beamforming-suppressed.png" class="spectrogram"><br/>
           <audio controls="" class="audio"><source src="./audio/S07837-beamforming-suppressed.wav"></audio>
         </td>
       </tr>
@@ -453,15 +434,22 @@
 
 <div class="content" id="about">
   <p>
-    Some other interesting links: 
+    Other interesting demos by ASPIRE: 
     <ul>
-      <li>Improved CEM: <a href="https://yanjuesong.github.io/Improved-CEM-samples/">Demos</a> </li>
-      <li>ICASSP 2023 submission demos: <a href="https://yanjuesong.github.io/CEM-loss-samples/">Aiding speech harmonic recovery in DNN-based single channel noise reduction using cepstral excitation manipulation (CEM) components</a> </li>
-      <li>ICASSP 2023 submission demos: <a href="https://aspireugent.github.io/Ad-Hoc-Distributed-Microphone-Clusters/">Exploiting speaker embeddings for improved microphone clustering and speech separation in ad-hoc microphone arrays</a> </li>
+      <li><a href="https://ieeexplore.ieee.org/document/9829294">TASLP</a>: <a href="https://yanjuesong.github.io/Improved-CEM-samples/">Improved CEM for Speech Harmonic Enhancement in Single Channel Noise Suppression</a> </li>
+      <li>ICASSP 2023: <a href="https://yanjuesong.github.io/CEM-loss-samples/">Aiding speech harmonic recovery in DNN-based single channel noise reduction using cepstral excitation manipulation (CEM) components</a> </li>
+      <li>ICASSP 2023: <a href="https://aspireugent.github.io/Ad-Hoc-Distributed-Microphone-Clusters/">Exploiting speaker embeddings for improved microphone clustering and speech separation in ad-hoc microphone arrays</a> </li>
       <li><a href="https://aspireugent.github.io/Selective-Speaker-Separation/">A DOA Dependent Feature Extraction for Selective Speaker Separation With a U-Net Architecture</a> </li>
     </ul>
   </p>
+
+  <p>
+    <!-- <img alt="Hits" src="https://hits.sh/aspireugent.github/SOTA-demos.svg?color=3265C2&labelColor=ffffff"/> -->
+    <img alt="Hits" src="https://hits.sh/aspireugent.github.io/SOTA-demos.svg?color=3265C2&labelColor=ffffff"/>
+  </p>
+
 </div>
+
 
 <br/>
 
@@ -488,32 +476,6 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-
-
-// // show the noisy
-// function showNoisy(img) {
-//   var end = img.src.split('_');
-//   var end = end[end.length-1];
-//   img.src = img.src.replace(end, 'noisy.png');
-// }
-
-// // show the original
-// function showOriginal(img) {
-//   img.src = img.src.replace('_noisy.png', img.method+'.png');
-// }
-
-// function enlargeImg(img) {
-//   if (img.className != 'enlarged'){
-//     // enlarge the image
-//     img.src = img.src.replace('_noisy.png', img.method+'.png');
-// 	img.className='enlarged';
-//   } else {
-//     // reset
-//     img.className='original';
-//   }
-//   // Animation effect
-//   img.style.transition = "transform 0.25s ease";
-// }
 
 </script>
 
