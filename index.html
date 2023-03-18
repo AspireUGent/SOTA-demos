@@ -13,7 +13,6 @@
   .banner{
     color: #3265C2;
     margin-left: 2%;
-    /*margin-bottom: 0;*/
     float: left;
   }
 
@@ -64,6 +63,7 @@
   }
   
   th {
+    border-style : hidden;
     text-align: center;
   	background-color: #3265C2;
   	color: white;
@@ -73,6 +73,18 @@
 
   td {
     text-align: left;
+    padding-bottom: 5px;
+  }
+
+  .no-border {
+    border-style : hidden!important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: justify;
+  }
+
+  .no-topborder {
+    border-top-color: #FFFFFF!important;
   }
 
   .sigInfo{
@@ -87,6 +99,12 @@
     width: 70%;
   }
 
+  .text-in-table{
+    text-align: justify;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
   .sigTag{
     text-align: center;
     font-weight: bold;
@@ -94,8 +112,8 @@
   }
 
   .noiseInfo{
-    text-align: center;
-    color: #3265C2;
+/*    text-align: center;*/
+/*    color: #3265C2;*/
     height: 40px;
     font-size: 120%;
     font-weight: bold;
@@ -165,6 +183,11 @@
    margin-left: 17%;
   }
 
+  p.content-text{
+   margin-left: 17%;
+   text-align: justify;
+  }
+
 
 </style>
 </head>
@@ -197,16 +220,35 @@
 
 <h3 class="content">Audio samples </h3>
 
+<p class="content-text">
+  These pages present demos of our latest work in deep source separation. In one of the first approaches of its kind, we present <em>location-informed source extraction</em> where the network can be dynamically configured to focus on <em>any</em> desired spatial region. <br/>
+  At run-time, information on such desired spatial regions (analogous to a desired beamwidth) can be input to the system (e.g., by an external source localisation stage or by the user). Our network then extracts <em>all speech sources</em> in the specified region.  The regions of interest can, additionally, be <em>reconfigured during run-time</em>.
+</p>
+
 <div class="content" id="location">
 	
   <table class="tb">
     <thead>
       <tr>
-        <th colspan="3">Location-informed DNN for source separation</th>
+        <th colspan="3">Speaker extraction using compact microphone arrays</th>
       </tr>
     </thead>
 
     <tbody>
+      <tr>
+        <td class="no-border" width="60%" colspan="2">
+          We first present the separation results obtained using a small 3-microphone array. In this scenario, the speech of 2 talkers is captured in a “cocktail-party” scenario where the background noise is spatially diffuse babble noise (noise produced by several people holding simultaneous conversations – typical of a party). The two potential target speakers are at a distance of 2m from the array (see Figure).
+        </td>
+        <td class="no-topborder" rowspan="2">
+          <p class="sigTag">
+            Microphone observation
+          </p>
+          <p align="center">First, let us listen to the captured signal at any one microphone</p>
+          <img src=".\img\mic.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/mic_re.wav"></audio>
+        </td>
+      </tr>
+
       <tr>
         <td class="sigInfo">
           Setup: 
@@ -218,19 +260,17 @@
         <td>
           <img src=".\img\separation_setup.png" class=setup><br/>
         </td>
-        <td>
-          <p class="sigTag">
-            Microphone observation
-          </p>
-          <img src=".\img\mic.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/mic_re.wav"></audio>
+      </tr>
+
+      <tr>
+        <td class="text-in-table" colspan="3">
+          Each speaker is considered a target in turn and 2 outputs are generated, one corresponding to each speaker. Location information can be included in different ways – either as an <em>input feature</em> or as an <em>attention mechanism</em> deeper within the network. We show the effect of both these choices in the examples below.
         </td>
-        
       </tr>
 
       <tr>
         <td class="sigInfo">
-           Integration of the location information in the input stage
+           Now, let us listen to the output of location-informed separation, when the location information is incorporated as an <em>input feature</em>. This is the most straightforward way to include additional information, but by introducing it this early, the DNN may not be able to make the most optimal use of the information.
         </td>
         <td>
           <p class="sigTag">
@@ -250,7 +290,7 @@
 
       <tr>
         <td class="sigInfo">
-           Integration of the location information deeper in the DNN
+           Now we generate location sensitivity <em>deeper</em> in the network, allowing the DNN to optimally represent and use this information for the separation. This yields much better separation and clearer representation of the two target signals. The deep embedding proposed in <strong>WP2.b</strong> would be along these lines. 
         </td>
         <td>
           <p class="sigTag">
@@ -270,7 +310,7 @@
 
       <tr>
         <td class="sigInfo">
-           Cascade processing of DNN + post filter
+           Lastly, let us see the further benefit of cleaning up the phase in the separated signals. This is done by an additional <em>deep-cascade</em> architecture, with skip connections to preserve the information from the earlier layers. 
         </td>
         <td>
           <p class="sigTag">
@@ -290,7 +330,7 @@
 
       <tr>
         <td class="sigInfo">
-          Clean reference in the two directions
+          The clean speech signals (this serves as <em>reference</em> to estimate the quality of the separation)
         </td>
         <td>
           <p class="sigTag">
@@ -325,12 +365,13 @@
     <tbody>
       <tr>
         <td class="sigInfo" colspan="3">
-          Setup: 
+          Now we show the <em>proof-of-concept</em> work for binaural hearing augmentation – <em>the focus of the proposal</em>. The results here are based on the <a href="http://claritychallenge.org">Clarity challenge</a> data, where the user wears <em>binaural</em> behind-the-ear (BTE) hearing-aids, each equipped with 3 microphones. The goal is to extract the signal of the target speaker in the presence of localised interference which could either be a household appliance (boiling kettle, vacuum cleaner, …) or an interfering talker. Example scenarios are demonstrated below, with:
           <ul>
-            <li>Clarity challenge – binaural hearing (<a href="http://claritychallenge.org">Visit ClarityChallenge</a>) </li>
-            <li>2 hearing aids, 3 mics per device</li>
-            <li>Same core algorithm, trained for new situation</li>
+            <li>the left panel showing the noisy mixture signal at one ear and </li>
+            <li>the right panel showing the binaural target signal estimate.</li>
           </ul>
+          We have focussed on fully attenuating the interfering source – which is an acceptable strategy because of the <em>domestic</em> setting. <br>
+          In the proposed research, for generalised augmentation, we will consider location and <em>scene informed</em> source separation – which will yield the appropriate context dependent enhancement. 
         </td>
       </tr>
 
@@ -343,7 +384,7 @@
 
       <tr>
         <td class="sigInfo">
-          Boiling water noise
+          Scene 1: Running water
         </td>
         <td>
           <p class="sigTag">
@@ -363,7 +404,7 @@
 
       <tr>
         <td class="sigInfo">
-          Vaccum noise
+          Scene 2: Vacuum cleaner
         </td>
         <td>
           <p class="sigTag">
@@ -434,7 +475,18 @@
 
 <div class="content" id="about">
   <p>
-    Other interesting demos by ASPIRE: 
+    <h4>About ASPIRE:</h4>
+    ASPIRE@IDLab is the research group headed by Prof. Dr.-Ing Nilesh Madhu at Ghent University. The research focus of the group on the robust capture, enhancement, and analysis of signals, for information extraction in a wide variety of applications. Audio and speech processing is one of our main research pillars, and our ongoing research here is focussed on: <br>
+    (a) localising and segregating speech sources for telecommunications and smart-home applications; <br>
+    (b) audio analytics: classifying the background scene, localising acoustic events, ...;<br>
+    (c) audio reproduction for group experience in virtual reality.<br>
+
+    The underlying philosophy in our approaches is the <em>appropriate</em> embedding of <em>domain-specific</em> knowledge within <em>deep-learning</em> frameworks. This can better leverage the available data, while allowing the networks to generalise well to unseen conditions in real-life situations. <br>
+
+    With our latest work, we are at the forefront in the field of single- and multi-microphone speech enhancement.
+  </p>
+  <p>
+    <h4>Other interesting demos by ASPIRE: </h4>
     <ul>
       <li><a href="https://ieeexplore.ieee.org/document/9829294">TASLP</a>: <a href="https://yanjuesong.github.io/Improved-CEM-samples/">Improved CEM for Speech Harmonic Enhancement in Single Channel Noise Suppression</a> </li>
       <li>ICASSP 2023: <a href="https://yanjuesong.github.io/CEM-loss-samples/">Aiding speech harmonic recovery in DNN-based single channel noise reduction using cepstral excitation manipulation (CEM) components</a> </li>
@@ -447,7 +499,7 @@
     <!-- <img alt="Hits" src="https://hits.sh/aspireugent.github/SOTA-demos.svg?color=3265C2&labelColor=ffffff"/> -->
     <img src="https://hits.sh/aspireugent.github.io/SOTA-demos.svg"
       style="float: right;padding-right: 15px;" 
-      width="10" />
+      width="5" />
   </p>
 
 </div>
