@@ -290,7 +290,7 @@
 
       <tr>
         <td class="sigInfo">
-           Now we generate location sensitivity <em>deeper</em> in the network, allowing the DNN to optimally represent and use this information for the separation. This yields much better separation and clearer representation of the two target signals. The deep embedding proposed in <strong>WP2.b</strong> would be along these lines. 
+           Now we generate location sensitivity <em>deeper</em> in the network, allowing the DNN to optimally represent and use this information for the separation. This yields much better separation and clearer representation of the two target signals. 
         </td>
         <td>
           <p class="sigTag">
@@ -365,13 +365,13 @@
     <tbody>
       <tr>
         <td class="sigInfo" colspan="3">
-          Now we show the <em>proof-of-concept</em> work for binaural hearing augmentation – <em>the focus of the proposal</em>. The results here are based on the <a href="http://claritychallenge.org">Clarity challenge</a> data, where the user wears <em>binaural</em> behind-the-ear (BTE) hearing-aids, each equipped with 3 microphones. The goal is to extract the signal of the target speaker in the presence of localised interference which could either be a household appliance (boiling kettle, vacuum cleaner, …) or an interfering talker. Example scenarios are demonstrated below, with:
+          Now we show a <em>proof-of-concept</em> work for binaural hearing augmentation – work we have <em>recently started</em>. The results here are based on the <a href="http://claritychallenge.org">Clarity challenge</a> data, where the user wears <em>binaural</em> behind-the-ear (BTE) hearing-aids, each equipped with 3 microphones. The goal is to extract the signal of the target speaker in the presence of localised interference which could either be a household appliance (boiling kettle, vacuum cleaner, …) or an interfering talker. The separation is based on a classical beamformer-postfilter combination, where the <em>statistic estimation</em> is driven by deep learning. Example scenarios are demonstrated below, with:
           <ul>
             <li>the left panel showing the noisy mixture signal at one ear and </li>
             <li>the right panel showing the binaural target signal estimate.</li>
           </ul>
           We have focussed on fully attenuating the interfering source – which is an acceptable strategy because of the <em>domestic</em> setting. <br>
-          In the proposed research, for generalised augmentation, we will consider location and <em>scene informed</em> source separation – which will yield the appropriate context dependent enhancement. 
+          In future work, for generalised augmentation, we will consider location and <em>scene informed</em> source separation – which will yield the appropriate context dependent enhancement. 
         </td>
       </tr>
 
@@ -397,8 +397,8 @@
           <p class="sigTag">
             Enhanced binaural signal
           </p>
-          <img src=".\img\S06253-beamforming-suppressed.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/S06253-beamforming-suppressed.wav"></audio>
+          <img src=".\img\S06253-beamforming-suppressed_ch1.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/S06253-beamforming-suppressed_ch1.wav"></audio>
         </td>
       </tr>
 
@@ -417,8 +417,8 @@
           <p class="sigTag">
             Enhanced binaural signal
           </p>
-          <img src=".\img\S07845-beamforming-suppressed.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/S07845-beamforming-suppressed.wav"></audio>
+          <img src=".\img\S07845-beamforming-suppressed_ch1.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/S07845-beamforming-suppressed_ch1.wav"></audio>
         </td>
       </tr>
 
@@ -443,8 +443,8 @@
           <p class="sigTag">
             Enhanced binaural signal
           </p>
-          <img src=".\img\S07835-beamforming-suppressed.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/S07835-beamforming-suppressed.wav"></audio>
+          <img src=".\img\S07835-beamforming-suppressed_ch1.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/S07835-beamforming-suppressed_ch1.wav"></audio>
         </td>
       </tr>
 
@@ -463,8 +463,8 @@
           <p class="sigTag">
             Enhanced binaural signal
           </p>
-          <img src=".\img\S07837-beamforming-suppressed.png" class="spectrogram"><br/>
-          <audio controls="" class="audio"><source src="./audio/S07837-beamforming-suppressed.wav"></audio>
+          <img src=".\img\S07837-beamforming-suppressed_ch1.png" class="spectrogram"><br/>
+          <audio controls="" class="audio"><source src="./audio/S07837-beamforming-suppressed_ch1.wav"></audio>
         </td>
       </tr>
 
@@ -489,8 +489,8 @@
     <h4>Other interesting demos by ASPIRE: </h4>
     <ul>
       <li><a href="https://ieeexplore.ieee.org/document/9829294">TASLP</a>: <a href="https://yanjuesong.github.io/Improved-CEM-samples/">Improved CEM for Speech Harmonic Enhancement in Single Channel Noise Suppression</a> </li>
-      <li>ICASSP 2023: <a href="https://yanjuesong.github.io/CEM-loss-samples/">Aiding speech harmonic recovery in DNN-based single channel noise reduction using cepstral excitation manipulation (CEM) components</a> </li>
-      <li>ICASSP 2023: <a href="https://aspireugent.github.io/Ad-Hoc-Distributed-Microphone-Clusters/">Exploiting speaker embeddings for improved microphone clustering and speech separation in ad-hoc microphone arrays</a> </li>
+      <li><a href="https://ieeexplore.ieee.org/document/10096868/">ICASSP 2023</a>: <a href="https://yanjuesong.github.io/CEM-loss-samples/">Aiding speech harmonic recovery in DNN-based single channel noise reduction using cepstral excitation manipulation (CEM) components</a> </li>
+      <li><a href="https://ieeexplore.ieee.org/document/10094862">ICASSP 2023</a>: <a href="https://aspireugent.github.io/Ad-Hoc-Distributed-Microphone-Clusters/">Exploiting speaker embeddings for improved microphone clustering and speech separation in ad-hoc microphone arrays</a> </li>
       <li><a href="https://aspireugent.github.io/Selective-Speaker-Separation/">A DOA Dependent Feature Extraction for Selective Speaker Separation With a U-Net Architecture</a> </li>
     </ul>
   </p>
